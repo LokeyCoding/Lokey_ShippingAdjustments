@@ -3,7 +3,7 @@
 
     <modules>
 	<LKC_ShippingAdjustmentsCore>
-	    <version>4.0.0</version>
+	    <version>4.0.1</version>
 	    <!-- This belongs in /app/etc/modules/LKC_ShippingAdjustmentsCore.xml
 	    <active>true</active>
 	    <codePool>community</codePool>

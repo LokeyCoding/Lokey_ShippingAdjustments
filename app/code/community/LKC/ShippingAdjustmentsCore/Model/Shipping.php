@@ -227,7 +227,14 @@ class LKC_ShippingAdjustmentsCore_Model_Shipping extends Mage_Shipping_Model_Shi
         {
             if (!$result instanceof Mage_Shipping_Model_Rate_Result_Error)
             {
+                $request->unsSkip();
+
                 Mage::dispatchEvent('lkc_shippingadjustments_collectcarrierrates_prefilter', array('carrier_code' => $carrierCode, 'request' => $request));
+
+                if($request->getSkip() === true)
+                {
+                    return $this;
+                }
 
                 $result = $carrier->collectRates($request);
 
