@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config>
+
+    <modules>
+	<LKC_ShippingAdjustmentsCore>
+	    <version>4.0.0</version>
+	    <!-- This belongs in /app/etc/modules/LKC_ShippingAdjustmentsCore.xml
+	    <active>true</active>
+	    <codePool>community</codePool>
+	    <depends>
+		<Mage_Core />
+		<Mage_Shipping />
+		<Mage_Adminhtml />
+	    </depends>
+	    -->
+	</LKC_ShippingAdjustmentsCore>
+    </modules>
+
+    <global>
+	<models>
+	    <LKC_ShippingAdjustmentsCore>
+		<class>LKC_ShippingAdjustmentsCore_Model</class>
+	    </LKC_ShippingAdjustmentsCore>
+	    <shipping>
+		<rewrite>
+		    <shipping>LKC_ShippingAdjustmentsCore_Model_Shipping</shipping>
+		</rewrite>
+	    </shipping>
+	</models>
+	<helpers>
+	    <LKC_ShippingAdjustmentsCore>
+		<class>LKC_ShippingAdjustmentsCore_Helper</class>
+	    </LKC_ShippingAdjustmentsCore>
+	</helpers>
+    </global>
+
+    <default>
+	<shipping>
+	    <lkc_shippingadjustments>
+		<active>0</active>
+		<shipping_methods />
+	    </lkc_shippingadjustments>
+	</shipping>
+    </default>
+
+</config>

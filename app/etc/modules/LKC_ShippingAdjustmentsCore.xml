@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+	<LKC_ShippingAdjustmentsCore>
+	    <active>true</active>
+	    <codePool>community</codePool>
+	    <depends>
+		<Mage_Core />
+		<Mage_Shipping />
+		<Mage_Adminhtml />
+	    </depends>
+	</LKC_ShippingAdjustmentsCore>
+    </modules>
+</config>
