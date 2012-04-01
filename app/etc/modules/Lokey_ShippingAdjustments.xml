@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Lokey_ShippingAdjustments>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Core/>
+                <Mage_Shipping/>
+                <Mage_Adminhtml/>
+            </depends>
+        </Lokey_ShippingAdjustments>
+    </modules>
+</config>

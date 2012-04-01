@@ -8,28 +8,30 @@
  * http://opensource.org/licenses/osl-3.0.php
  *
  * @category   Mage
- * @package    LKC_ShippingAdjustmentsCore
+ * @package    Lokey_ShippingAdjustments
  * @copyright  Copyright (c) 2009 Lokey Coding, LLC <ip@lokeycoding.com>
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @author     Lee Saferite <lee.saferite@lokeycoding.com>
  */
 
-
-class LKC_ShippingAdjustmentsCore_Model_ShippingMethods
+class Lokey_ShippingAdjustments_Model_ShippingMethods
 {
 
     public function toOptionArray()
     {
         $carriers = Mage::getSingleton('shipping/config')->getAllCarriers();
 
-        $methods = array(array('label' => 'All Methods', 'value' => 'ALL'));
+        $methods = array(
+            array(
+                'label' => 'All Methods',
+                'value' => 'ALL'
+            )
+        );
 
-        foreach ($carriers as $carrierCode => $carrierModel)
-        {
+        foreach ($carriers as $carrierCode => $carrierModel) {
             $carrierMethods = $carrierModel->getAllowedMethods();
 
-            if (!$carrierMethods)
-            {
+            if (!$carrierMethods) {
                 continue;
             }
 
@@ -40,8 +42,7 @@ class LKC_ShippingAdjustmentsCore_Model_ShippingMethods
                 'value' => array(),
             );
 
-            foreach ($carrierMethods as $methodCode => $methodTitle)
-            {
+            foreach ($carrierMethods as $methodCode => $methodTitle) {
                 $methods[$carrierCode]['value'][] = array(
                     'value' => $carrierCode . '_' . $methodCode,
                     'label' => '[' . $carrierCode . '] ' . $methodTitle,
@@ -51,5 +52,4 @@ class LKC_ShippingAdjustmentsCore_Model_ShippingMethods
 
         return $methods;
     }
-
 }

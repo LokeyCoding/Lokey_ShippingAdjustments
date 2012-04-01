@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Lokey_ShippingAdjustments>
+            <version>4.0.2</version>
+        </Lokey_ShippingAdjustments>
+    </modules>
+    <global>
+        <models>
+            <Lokey_ShippingAdjustments>
+                <class>Lokey_ShippingAdjustments_Model</class>
+            </Lokey_ShippingAdjustments>
+            <shipping>
+                <rewrite>
+                    <shipping>Lokey_ShippingAdjustments_Model_Shipping</shipping>
+                </rewrite>
+            </shipping>
+        </models>
+        <helpers>
+            <Lokey_ShippingAdjustments>
+                <class>Lokey_ShippingAdjustments_Helper</class>
+            </Lokey_ShippingAdjustments>
+        </helpers>
+    </global>
+    <default>
+        <shipping>
+            <lokey_shippingadjustments>
+                <active>0</active>
+                <shipping_methods/>
+            </lokey_shippingadjustments>
+        </shipping>
+    </default>
+</config>
