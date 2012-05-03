@@ -17,7 +17,7 @@ class Lokey_ShippingAdjustments_Model_Shipping extends Mage_Shipping_Model_Shipp
 
     public function collectRates(Mage_Shipping_Model_Rate_Request $request)
     {
-        $store = Mage::getModel('core/store')->load($request->getStoreId());
+        $store = Mage::app()->getStore($request->getStoreId());
         $active = Mage::helper('Lokey_ShippingAdjustments')->isActive($store);
 
         // If the module is not active just call the parent method and return
@@ -28,7 +28,6 @@ class Lokey_ShippingAdjustments_Model_Shipping extends Mage_Shipping_Model_Shipp
 
         Mage::dispatchEvent('lokey_shippingadjustments_collectrates_prefilter', array('request' => $request));
 
-        $store = Mage::getModel('core/store')->load($request->getStoreId());
         $originalItems = $request->getAllItems();
 
         // If there are no items just call the parent method and return
