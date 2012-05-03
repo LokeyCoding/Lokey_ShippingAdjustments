@@ -15,14 +15,17 @@
 class Lokey_ShippingAdjustments_Helper_Data extends Mage_Core_Helper_Abstract
 {
 
-    public function isActive(Mage_Core_Model_Store $store)
+    public function isActive($store = null)
     {
-        return (bool)$store->getConfig('shipping/lokey_shippingadjustments/active');
+        $active = Mage::getStoreConfigFlag('shipping/lokey_shippingadjustments/active', $store);
+        return $active;
     }
 
-    public function getShippingMethods(Mage_Core_Model_Store $store)
+    public function getShippingMethods($store = null)
     {
-        $methods = (array)unserialize($store->getConfig('shipping/lokey_shippingadjustments/shipping_methods'));
-        return (empty($methods) ? array('ALL') : $methods);
+        $methods = Mage::getStoreConfig('shipping/lokey_shippingadjustments/shipping_methods', $store);
+        $methods = (array)unserialize($methods);
+        $methods = (empty($methods) ? array('ALL') : $methods);
+        return $methods;
     }
 }
