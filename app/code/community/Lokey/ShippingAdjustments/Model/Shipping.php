@@ -37,7 +37,7 @@ class Lokey_ShippingAdjustments_Model_Shipping extends Mage_Shipping_Model_Shipp
 
         // Build an array of all carrier codes
         $carrierCodes = array();
-        $carriersConfig = Mage::getStoreConfig('carriers', $request->getStoreId());
+        $carriersConfig = Mage::getStoreConfig('carriers', $store);
         foreach ($carriersConfig as $code => $config) {
             $carrierCodes[] = $code;
         }
