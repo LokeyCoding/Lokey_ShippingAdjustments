@@ -32,8 +32,7 @@ class Lokey_ShippingAdjustments_Model_Shipping extends Mage_Shipping_Model_Shipp
 
         // If there are no items just call the parent method and return
         if (count($originalItems) === 0) {
-            parent::collectRates($request);
-            return $this;
+            return parent::collectRates($request);
         }
 
         // Build an array of all carrier codes
