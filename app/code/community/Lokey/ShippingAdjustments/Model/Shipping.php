@@ -166,6 +166,7 @@ class Lokey_ShippingAdjustments_Model_Shipping extends Mage_Shipping_Model_Shipp
             )
         );
 
+        // TODO: convert this to either use Magento internal rounding or locale/currency rounding
         $totalAdjustment = round(floatval($adjustments->getOrder()), 2);
         foreach ($adjustments->getItems() as $itemAdjustment) {
             $totalAdjustment += round(floatval($itemAdjustment), 2);
