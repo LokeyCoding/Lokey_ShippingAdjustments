@@ -18,7 +18,7 @@ class Lokey_ShippingAdjustments_Model_Shipping extends Mage_Shipping_Model_Shipp
     public function collectRates(Mage_Shipping_Model_Rate_Request $request)
     {
         $store = Mage::app()->getStore($request->getStoreId());
-        $active = Mage::helper('Lokey_ShippingAdjustments')->isActive($store);
+        $active = Mage::helper('Lokey_ShippingAdjustments/Data')->isActive($store);
 
         // If the module is not active just call the parent method and return
         if (!$active) {
@@ -58,7 +58,7 @@ class Lokey_ShippingAdjustments_Model_Shipping extends Mage_Shipping_Model_Shipp
         }
 
         // Grab a list of shipping methods that the module adjusts.
-        $shippingMethods = Mage::helper('Lokey_ShippingAdjustments')->getShippingMethods($store);
+        $shippingMethods = Mage::helper('Lokey_ShippingAdjustments/Data')->getShippingMethods($store);
         if (in_array('ALL', $shippingMethods)) {
             // We want to adjust all the carriers
             $adjustedCarrierCodes = $carrierCodes;
