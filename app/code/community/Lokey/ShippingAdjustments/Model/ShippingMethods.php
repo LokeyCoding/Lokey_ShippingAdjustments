@@ -27,24 +27,29 @@ class Lokey_ShippingAdjustments_Model_ShippingMethods
         );
 
         foreach ($carriers as $carrierCode => $carrierModel) {
-            $carrierMethods = $carrierModel->getAllowedMethods();
+            try {
+                $carrierMethods = $carrierModel->getAllowedMethods();
 
-            if (!$carrierMethods) {
-                continue;
-            }
+                if (!$carrierMethods) {
+                    continue;
+                }
 
-            $carrierTitle = Mage::getStoreConfig('carriers/' . $carrierCode . '/title');
+                $carrierTitle = Mage::getStoreConfig('carriers/' . $carrierCode . '/title');
 
-            $methods[$carrierCode] = array(
-                'label' => $carrierTitle,
-                'value' => array(),
-            );
-
-            foreach ($carrierMethods as $methodCode => $methodTitle) {
-                $methods[$carrierCode]['value'][] = array(
-                    'value' => $carrierCode . '_' . $methodCode,
-                    'label' => '[' . $carrierCode . '] ' . $methodTitle,
+                $methods[$carrierCode] = array(
+                    'label' => $carrierTitle,
+                    'value' => array(),
                 );
+
+                foreach ($carrierMethods as $methodCode => $methodTitle) {
+                    $methods[$carrierCode]['value'][] = array(
+                        'value' => $carrierCode . '_' . $methodCode,
+                        'label' => '[' . $carrierCode . '] ' . $methodTitle,
+                    );
+                }
+            }
+            catch (Exception $e) {
+                Mage::logException($e);
             }
         }
 
