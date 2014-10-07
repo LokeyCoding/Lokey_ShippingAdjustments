@@ -1,8 +1,0 @@
-/app/etc/local.xml
-/media
-/var
-/*.zip
-/*.tar
-/*.tgz
-/*.tar.gz
-/*.tar.bz2

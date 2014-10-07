@@ -1,0 +1,14 @@
+{
+    "name": "LokeyCoding/Lokey_ShippingAdjustments",
+    "description": "Magento Shipping Adjustments Module",
+    "authors": [
+        {
+            "name": "Lee Saferite",
+            "email": "lee@saferite.com"
+        }
+    ],
+    "type": "magento-module",
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
